@@ -1,7 +1,7 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Header from "../components/Header"
 
-function RandomCocktailPage(){
+function RandomCocktail2Page(){
 
     const [randomCocktail, setRandomCocktail] = useState(null)
     // variable 'randomCocktail' a un valeur null grace a useState.
@@ -27,36 +27,24 @@ function RandomCocktailPage(){
         ingredientKeys.push(`strIngredient${i}`)
     }
 
-    /*
-    const rechargeComposant =()=>{
-        setRandomCocktail(null)  // 이렇게 해도 되긴 하는데 randomCocktail===null이 충족되며 fetch를 완전 처음부터 시작하기 때문에 좋은 방법은 아님.
-    }
-    */
+    // useEffect est une fonction que react me founit et qui permet d'executer du code uniquement a certains chargements du composant
+    // (soit le premier, soit à chaque fois etc
+    // icic, vu qu'oon place un tableau vide en deuxieme parametre de useEffect, ca signifie qu'on veut executer la fonction une seule fois
+    // au premier chargement du composant.
+    // useEffect에 []가 없다면 useEffect 자체로 composant이 다시 charger되기 떄문에 []를 붙여 줘야 하는 것.
+    useEffect(()=>{
 
-    /*
-    const rechargeComposant =()=>{
+        //avant, on a utilise if pour le cas quand 'randomCocktail' est null. 
+        // mais grace a useEffect et [] a la fin, deja on a une promesse de charger une fois au premier.
         (async()=>{
             const cocktailRandomResponse = await fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
             const cocktailRandomInJs = await cocktailRandomResponse.json()
             setRandomCocktail(cocktailRandomInJs.drinks)
         })()
-    }
-    */
+    }, [])
 
+    // 만약에 그대로 if(randomCocktail === null){} 두었다고 가정해보자. api 자체 서버가 터저서 애초에 api로부터 받아오는 정보가 null 이라면
 
-    // vu que cette async fonction a ete utilise 2 fois, on peut creer une variable
-
-    const fetchCocktail = async()=>{
-        const cocktailRandomResponse = await fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
-        const cocktailRandomInJs = await cocktailRandomResponse.json()
-        setRandomCocktail(cocktailRandomInJs.drinks)
-    }
-    if (randomCocktail == null){
-        fetchCocktail()
-    }
-    const rechargeComposant = () =>{
-        fetchCocktail()
-    }
 
     return(
         <>
@@ -74,7 +62,7 @@ function RandomCocktailPage(){
                             }
                         })}
                     </ul>
-                    <button onClick={rechargeComposant}>actualiser</button>
+                
                 </main>
             ):(
                 // pendant le chargement, pendant le randomCocktail a pas encore son valeur, on cree cette balises HTML
@@ -86,4 +74,4 @@ function RandomCocktailPage(){
     )
 }
 
-export default RandomCocktailPage
+export default RandomCocktail2Page
