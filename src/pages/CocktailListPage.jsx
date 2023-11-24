@@ -26,7 +26,7 @@ function CocktailListPage (){
                 {cocktailList?(
                     <>
                         {cocktailList.map((cocktail)=>{
-                            return(
+                            return(    // faute1) au debut, meme si je voulais une seule element <p> pour le resultat,  j'ai pas mis return ici, donc j'avais pas de resultats.
                                 <>
                                     <article>
                                         <p>{cocktail.strDrink}</p>
@@ -34,6 +34,9 @@ function CocktailListPage (){
                                         <ul>
                                             {ingredientsKey.map((key)=>{
                                                 return <li>{cocktail[key]}</li>
+                                                // faute2) en oubliant qu'on est deja dans une boucle de cocktailList.map
+                                                // j'avais mis cocktailList[key]. aucun sense. il fallait prendre tout les ingredients par chaque cocktail.
+                                                // tableau[key] c'est impossible je pense
                                             })}
                                         </ul>
                                     </article>
