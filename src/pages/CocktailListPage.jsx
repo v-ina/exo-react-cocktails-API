@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Header from "../components/Header";
 
 function CocktailListPage (){
 
@@ -46,6 +47,7 @@ function CocktailListPage (){
 
     return(
         <>
+            <Header />
             <main>
                 {cocktailList?(
                     <>
