@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Header from "../components/Header"
+import CocktailCard from "../components/CocktailCard"
 
 function RandomCocktail2Page(){
 
@@ -52,7 +53,9 @@ function RandomCocktail2Page(){
             {randomCocktail? (
                 // une fois randomCocktail a son valeur, on cree ces balises HTML
                 <main>
-                    <h2>{randomCocktail[0].strDrink}</h2>
+                    <CocktailCard cocktail={randomCocktail[0]} keys={ingredientKeys}/>
+
+                    {/* <h2>{randomCocktail[0].strDrink}</h2>
                     <img src={randomCocktail[0].strDrinkThumb} alt={randomCocktail[0].strDrink} style={{width:"200px"}} />
                     <p>{randomCocktail[0].strInstructions} <span> (id : {randomCocktail[0].idDrink})</span></p>
                     <ul>
@@ -61,7 +64,7 @@ function RandomCocktail2Page(){
                                 return <li>{randomCocktail[0][key]}</li>
                             }
                         })}
-                    </ul>
+                    </ul> */}
                 
                 </main>
             ):(
