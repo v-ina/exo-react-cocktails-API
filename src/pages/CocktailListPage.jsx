@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Header from "../components/Header";
+import { Link } from "react-router-dom";
 
 function CocktailListPage (){
 
@@ -37,13 +38,13 @@ function CocktailListPage (){
             setCocktailList(cocktailsInJs.drinks)
         })(); // elle s'appelle elle meme . premier parentaise veut dire  fonction anonyme
     }
-    console.log(cocktailList);
+
 
     const ingredientsKey = []
     for (let i = 1; i <= 15; i++) {
         ingredientsKey.push(`strIngredient${i}`)
     }
-    console.log(ingredientsKey);
+
 
     return(
         <>
@@ -65,6 +66,7 @@ function CocktailListPage (){
                                                 // tableau[key] c'est impossible je pense
                                             })}
                                         </ul>
+                                        <Link to={`/cocktails/details/${cocktail.idDrink}`}>voir plus</Link>
                                     </article>
                                 </>
                             ) 
