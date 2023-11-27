@@ -9,6 +9,7 @@ function Header (){
                 <li><Link to="/randomcocktail">randomcocktail page</Link></li>
                 <li><Link to="/randomcocktail2">randomcocktail page2</Link></li>
                 <li><Link to="/category">Category page</Link></li>
+                <li><Link to="/ingredient">ingredient page</Link></li>
             </ul>
         </nav>
     )

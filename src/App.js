@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import RandomCocktailPage from "./pages/RandomCocktailPage";
 import RandomCocktail2Page from "./pages/RandomCocktail2Page";
 import CategoryPage from "./pages/CategoryPage";
+import IngredientListPage from "./pages/IngredientListPage";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/randomcocktail" element={<RandomCocktailPage />}/>
         <Route path="/randomcocktail2" element={<RandomCocktail2Page />}/>
         <Route path="/category" element={<CategoryPage />}/>
+        <Route path='/ingredient' element={<IngredientListPage/>}/>
       </Routes>
     </BrowserRouter>
   );

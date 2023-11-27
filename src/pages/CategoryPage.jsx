@@ -30,3 +30,5 @@ function CategoryPage() {
 }
 
 export default CategoryPage
+
+// bootstap 가르쳐주세요
