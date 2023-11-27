@@ -1,0 +1,12 @@
+nav{
+    background-color: black;
+    ul{
+        display: flex;
+        list-style: none;    
+        justify-content: space-evenly;    
+        a{
+            color: white;
+            text-decoration: none;
+        }
+    }
+}

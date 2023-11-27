@@ -1,7 +1,11 @@
 import { useState } from "react"
 import Header from "../components/Header"
+import { Link, useParams } from "react-router-dom"
+
 
 function RandomCocktailPage(){
+
+    const {idDrink} = useParams()
 
     const [randomCocktail, setRandomCocktail] = useState(null)
     // variable 'randomCocktail' a un valeur null grace a useState.
@@ -74,6 +78,7 @@ function RandomCocktailPage(){
                             }
                         })}
                     </ul>
+                    <Link to={`/cocktails/details/${randomCocktail[0].idDrink}`}>voir plus</Link>
                     <button onClick={rechargeComposant}>actualiser</button>
                 </main>
             ):(
